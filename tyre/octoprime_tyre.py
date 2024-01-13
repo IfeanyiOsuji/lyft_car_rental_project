@@ -6,6 +6,8 @@ class OctoprimeTyre(Tyre, ABC):
         self.wear_sensors = wear_sensors
 
     def needs_service(self):
+        if self.wear_sensors is None:
+            return False
         sum =0
         for i in self.wear_sensors:
             sum += i
