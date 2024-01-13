@@ -88,38 +88,38 @@ class TestGlissade(unittest.TestCase):
         self.assertFalse(car.needs_service())
 
 
-# class TestPalindrome(unittest.TestCase):
-#     def test_battery_should_be_serviced(self):
-#         today = datetime.today()
-#         last_service_date = today.date().replace(year=today.year - 5)
-#         warning_light_is_on = False
+class TestPalindrome(unittest.TestCase):
+    def test_battery_should_be_serviced(self):
+        current_date = date.fromisoformat("2020-05-15")
+        last_service_date = date.fromisoformat("2015-01-25")
+        warning_light_is_on = False
 
-#         car = CarFactory.create_palindrome(today, last_service_date, warning_light_is_on)
-#         self.assertTrue(car.needs_service())
+        car = CarFactory.create_palindrome(last_service_date,current_date, warning_light_is_on)
+        self.assertTrue(car.needs_service())
 
-#     def test_battery_should_not_be_serviced(self):
-#         today = datetime.today()
-#         last_service_date = today.date().replace(year=today.year - 2)
-#         warning_light_is_on = False
+    def test_battery_should_not_be_serviced(self):
+        current_date = date.fromisoformat("2020-05-15")
+        last_service_date = date.fromisoformat("2028-01-25")
+        warning_light_is_on = False
 
-#         car = CarFactory.create_palindrome(today,last_service_date, warning_light_is_on)
-#         self.assertFalse(car.needs_service())
+        car = CarFactory.create_palindrome(last_service_date,current_date, warning_light_is_on)
+        self.assertFalse(car.needs_service())
 
-#     def test_engine_should_be_serviced(self):
-#         today = datetime.today()
-#         last_service_date = datetime.today().date()
-#         warning_light_is_on = True
+    def test_engine_should_be_serviced(self):
+        current_date = date.fromisoformat("2020-05-15")
+        last_service_date = date.fromisoformat("2020-01-25")
+        warning_light_is_on = True
 
-#         car = CarFactory.create_palindrome(today,last_service_date, warning_light_is_on)
-#         self.assertTrue(car.needs_service())
+        car = CarFactory.create_palindrome(last_service_date,current_date, warning_light_is_on)
+        self.assertTrue(car.needs_service())
 
-#     def test_engine_should_not_be_serviced(self):
-#         today = datetime.today();
-#         last_service_date = datetime.today().date()
-#         warning_light_is_on = False
+    def test_engine_should_not_be_serviced(self):
+        current_date = date.fromisoformat("2020-05-15")
+        last_service_date = date.fromisoformat("2020-01-25")
+        warning_light_is_on = False
 
-#         car = CarFactory.create_palindrome(today,last_service_date, warning_light_is_on)
-#         self.assertFalse(car.needs_service())
+        car = CarFactory.create_palindrome(last_service_date,current_date, warning_light_is_on)
+        self.assertFalse(car.needs_service())
 
 
 # class TestRorschach(unittest.TestCase):
