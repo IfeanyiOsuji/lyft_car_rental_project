@@ -12,7 +12,26 @@ class Car(Serviceable, ABC):
 
     
     def needs_service(self):
-        return self.engine.needs_service() or self.battery.needs_service() or self.tyre.needs_service()
+        
+        return self._engine_needs_service(self.engine) or self._battery_needs_service(self.battery) or self._tyre_needs_service(self.tyre)
+    
+    def _engine_needs_service(self, engine:Engine):
+        if engine is None:
+            return False
+        return engine.needs_service()
+    
+    def _battery_needs_service(self, battery:Battery):
+        if battery is None:
+            return False
+        return battery.needs_service()
+    
+    def _tyre_needs_service(self, tyre:Tyre):
+        if tyre is None:
+            return False
+        return tyre.needs_service()
+    
+
+
 
 
 

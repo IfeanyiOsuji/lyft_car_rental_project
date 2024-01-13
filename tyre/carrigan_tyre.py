@@ -5,6 +5,8 @@ class CarriganTire(Tyre, ABC):
         self.wear_sensors = wear_sensors
 
     def needs_service(self):
+        if self.wear_sensors is None:
+            return False
         for i in self.wear_sensors:
             if i >= 0.9:
                 return True
